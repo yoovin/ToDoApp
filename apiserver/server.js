@@ -37,6 +37,7 @@ app.get('/api/todo', (req, res)=>{ // read
 app.post('/api/todo', (req, res) => { // add
 
   if(!req.body.content){
+    console.log('todo add에서 404로 응답했음!')
   return res.status(400).send()
   }
 
@@ -50,18 +51,43 @@ app.post('/api/todo', (req, res) => { // add
    }
   todos.push(newTodo)
   console.log(`id ${newId} content:${req.body.content} 추가`)
-  console.log(req.body)
+  return res.status(200).send()
 })
 
-app.post('/api/todo/delete/', (req, res)=>{
+app.post('/api/todo/delete/', (req, res)=>{ //delete
   reqId = req.body.id
   for(var i=0; i<todos.length; i++){
     if(todos[i].id === reqId){
       todos.splice(i,1)
       console.log(`id: ${reqId} 삭제`)
+      return res.status(200).send()
     }
   }
   
+})
+
+app.post('/api/todo/update', (req, res)=>{ //update
+  reqId = req.body.id
+  reqContent = req.body.content
+  for(var i=0; i<todos.length; i++){
+    if(todos[i].id === reqId){
+      todos[i].content = reqContent
+      console.log(`id: ${reqId} Content:${reqContent} 수정`)
+      return res.status(200).send()
+    }
+  }
+})
+
+app.post('/api/todo/isdone', (req, res) => { //isdone
+  reqId = req.body.id
+  reqDone = req.body.isdone
+  for(var i=0; i<todos.length; i++){
+    if(todos[i].id === reqId){
+      todos[i].isdone = reqDone
+      console.log(`id: ${reqId} ${reqDone.toString()} Checked`)
+      return res.status(200).send()
+    }
+  }
 })
 
 app.listen(port, ()=> console.log(`API 서버가 ${port}에서 돌아가는중!`))

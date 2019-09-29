@@ -9,10 +9,9 @@ constructor(props){
   this.state = {
     todo:''
   }
-  this.stateRefresh = this.stateRefresh.bind(this)
 }
 
-stateRefresh(){
+stateRefresh = () =>{
   this.callApi()
   .then(res => this.setState({todo:res}))
   .catch(err => console.log(err))
@@ -21,6 +20,7 @@ stateRefresh(){
 callApi = async () => {
   const response = await fetch('/api/todo')
   const body = await response.json()
+  console.log('callApied!')
   return body
 }
 

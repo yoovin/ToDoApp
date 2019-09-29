@@ -1,46 +1,18 @@
 import React from 'react';
-import axios from 'axios'
+import Tododelete from './Tododelete';
+import Todoupdate from './Todoupdate';
+import Isdonecheck from './Isdonecheck';
+
 
 class Todocard extends React.Component{
-    constructor(props){
-        super(props)
-        this.deleteTodo = this.deleteTodo.bind(this)
-        this.handleFormDelete = this.handleFormDelete.bind(this)
-      }
-
-    deleteTodo(){
-        return axios({
-            method:'post',
-            url:'/api/todo/delete',
-            data:{
-                id:this.props.id
-            }
-        })
-    }
-
-    handleFormDelete(e){
-        e.preventDefault()
-        this.deleteTodo()
-        .then((res)=>{
-            console.log(res.data)
-            this.props.stateRefresh()
-        })
-        .catch(err=>console.log(err))
-        
-
-    }
 
     render(){
         return(
             <div>
                 {this.props.id}
-                <text>{this.props.content}</text>
-                <button>완료</button>
-                <button>수정</button>
-                <form onSubmit={this.handleFormDelete}>
-                    <button type="submit">삭제</button>
-                </form>
-                
+                <Todoupdate id={this.props.id}  content={this.props.content} stateRefresh={this.props.stateRefresh}/>
+                <Isdonecheck id={this.props.id} isdone={this.props.isdone} stateRefresh={this.props.stateRefresh}/>
+                <Tododelete id={this.props.id}  stateRefresh={this.props.stateRefresh}/>
             </div>
         )
     }
