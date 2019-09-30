@@ -11,23 +11,53 @@ body{
 }
 
 .Isdonecheck{
-    /* background-color: lavender; */
     float:left;
     width: 10%;
 }
 
 .Todotext{
-    /* background-color: aqua; */
-    margin-top: 5px;
+    margin-top: 15px;
     font-family: sans-serif;
     float: left;
     width: 80%;
 }
 
 .Deletebutton{
-    /* background-color: black; */
    float: right;
    width: 10%;
+}
+.Deleteicon, .Checkicon{
+    background-color: Transparent;
+    outline: none;
+    background-repeat:no-repeat;
+    border: none;
+    margin: 5px;
+}
+
+.Deleteicon:hover{
+    color: red;
+}
+
+.Checkicon:hover{
+    color: greenyellow;
+}
+
+.Donenav > div{
+    background-color: aliceblue;
+    float: right;
+    padding: 20px;
+    width: 70px;
+    text-align: center;
+}
+
+.Done{
+    margin-right: 50px;
+    border-radius: 15px;
+}
+
+
+.Done:hover{
+    background-color: aqua;
 }
 
 .Todolist{

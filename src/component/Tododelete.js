@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios'
+import Trashicon from '../fontawesome/Trashicon';
 
 class Tododelete extends React.Component{
     constructor(props){
@@ -31,7 +32,7 @@ class Tododelete extends React.Component{
     render(){
         return(
         <div className="Deletebutton">
-            <form onSubmit={this.handleFormDelete}><button type="submit">삭제</button></form>
+            <form onSubmit={this.handleFormDelete}><button className="Deleteicon" type="submit" title="삭제"><Trashicon size="3x"/></button></form>
         </div>
         )
     }

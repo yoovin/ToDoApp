@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios'
+import Checkicon from '../fontawesome/Checkicon'
 
 class Isdonecheck extends React.Component{
     state={
@@ -30,7 +31,8 @@ class Isdonecheck extends React.Component{
     render(){
         return(
             <div className="Isdonecheck">
-                <input type="checkbox" onChange={this.handleChecked} defaultChecked={this.props.isdone}></input>
+                <button className="Checkicon" title={this.state.carddone ? "취소" : "완료"}
+                onClick={this.handleChecked}><Checkicon size="3x"/></button>
             </div>
         )
     }
