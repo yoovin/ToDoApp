@@ -29,7 +29,9 @@ class Isdonecheck extends React.Component{
 
     render(){
         return(
-            <input type="checkbox" onChange={this.handleChecked} defaultChecked={this.props.isdone}></input>
+            <div className="Isdonecheck">
+                <input type="checkbox" onChange={this.handleChecked} defaultChecked={this.props.isdone}></input>
+            </div>
         )
     }
 }

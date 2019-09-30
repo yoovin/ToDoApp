@@ -30,9 +30,9 @@ class Tododelete extends React.Component{
     
     render(){
         return(
-            <form onSubmit={this.handleFormDelete}>
-                    <button type="submit">삭제</button>
-                </form>
+        <div className="Deletebutton">
+            <form onSubmit={this.handleFormDelete}><button type="submit">삭제</button></form>
+        </div>
         )
     }
 }

@@ -78,7 +78,7 @@ app.post('/api/todo/update', (req, res)=>{ //update
   }
 })
 
-app.post('/api/todo/isdone', (req, res) => { //isdone
+app.post('/api/todo/isdone', (req, res) => { //isdone 
   reqId = req.body.id
   reqDone = req.body.isdone
   for(var i=0; i<todos.length; i++){

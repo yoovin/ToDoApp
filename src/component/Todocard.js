@@ -8,8 +8,7 @@ class Todocard extends React.Component{
 
     render(){
         return(
-            <div>
-                {this.props.id}
+            <div className="todocard">
                 <Todoupdate id={this.props.id}  content={this.props.content} stateRefresh={this.props.stateRefresh}/>
                 <Isdonecheck id={this.props.id} isdone={this.props.isdone} stateRefresh={this.props.stateRefresh}/>
                 <Tododelete id={this.props.id}  stateRefresh={this.props.stateRefresh}/>

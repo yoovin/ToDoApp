@@ -2,9 +2,16 @@ import React from 'react';
 import axios from 'axios'
 
 class Todoupdate extends React.Component{
+
     state = {
         isModify:false,
         todo:this.props.content
+    }
+    textInput = null
+    
+
+    componentDidMount(){
+        
     }
 
     setTag = () =>{
@@ -12,11 +19,19 @@ class Todoupdate extends React.Component{
             return(<text onClick={this.handleInputText}>{this.props.content}</text>)
         }else if(this.state.isModify === true){
             return(
-            <form onSubmit={this.handleFormSubmit}>
-                <input type="text" value={this.state.todo} onChange={this.handleValueChange}></input>
-                <button onClick={this.handleInputText}>취소</button>
-                <input type="submit" value="수정"></input>
-            </form>
+                <input 
+                    className="Updatetext"
+                    ref={ref => (this.textInput = ref)}
+                    size={
+                        this.state.todo.length*2 < 80
+                        ? this.state.todo.length*2
+                        : 80
+                    } 
+                    type="text" 
+                    value={this.state.todo} 
+                    onChange={this.handleValueChange}
+                    onBlur={this.handleInputText}
+                    ></input>
             )
         }
     }
@@ -25,9 +40,25 @@ class Todoupdate extends React.Component{
         this.setState({todo:e.target.value})
     }
 
-    handleInputText = () => {
-        if(this.state.isModify === false) this.setState({isModify:true})
-        else this.setState({isModify:false, todo:this.props.content})
+    handleInputText = async () => {
+        if(this.state.isModify === false) {
+            await this.setState({isModify:true})
+            await this.textInput.focus()
+        }else if(this.state.todo.length === 0){
+
+            await alert('내용은 한글자 이상 있어야 합니다!')
+            await this.setState({isModify:false, todo:this.props.content})
+
+        } else if(this.state.isModify === true && this.state.todo !== this.props.content){
+            this.modifyTodo()
+            .then((res)=>{
+                console.log(res)
+                this.setState({isModify:false})
+                this.props.stateRefresh()
+        })
+        .catch(err=>console.log(err))
+        }
+         else this.setState({isModify:false, todo:this.props.content})
     }
 
     handleFormSubmit = (e)=>{
@@ -41,7 +72,9 @@ class Todoupdate extends React.Component{
         .catch(err=>console.log(err))
     }
 
-    modifyTodo = ()=>{
+    priventNullContent = async () => {
+    }
+    modifyTodo = ( )=>{
         return axios({
             method:'post',
             url:'/api/todo/update',
@@ -53,9 +86,9 @@ class Todoupdate extends React.Component{
     }
 
     render(){
-        return(
-            this.setTag()
-            )
+        return(<div className="Todotext">
+            {this.setTag()}
+            </div>)
     }
 }
 

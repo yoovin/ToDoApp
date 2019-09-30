@@ -32,10 +32,10 @@ componentDidMount(){
 
   render(){
     return(
-      <div>
-        <h1>Todos</h1>
+      <body>
+        <h1 className="title">Todos</h1>
         <Todolist todo={this.state.todo} stateRefresh={this.stateRefresh}/>
-      </div>
+      </body>
     )
   }
 }

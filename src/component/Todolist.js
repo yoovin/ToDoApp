@@ -1,6 +1,5 @@
 import React from 'react';
 import Todocard from './Todocard'
-import './Todolist.css'
 import Addform from './Addform'
 
 class Todolist extends React.Component{

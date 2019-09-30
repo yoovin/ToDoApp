@@ -40,9 +40,9 @@ class Addform extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="Addform">
                 <form onSubmit={this.handleFormSubmit}>
-                <input type="text" name="content" value={this.state.todo} onChange={this.handleValueChange} placeholder="add Todo"></input>
+                <input className="Todoinput" size={this.state.todo.length*2} type="text" name="content" value={this.state.todo} onChange={this.handleValueChange} placeholder="add Todo"></input>
                 <input type="submit"></input>
                 </form>
             </div>
