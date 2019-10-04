@@ -21,7 +21,7 @@ class Todoupdate extends React.Component{
             return(
                 <input 
                     className="Updatetext"
-                    ref={ref => (this.textInput = ref)}
+                    ref={ref => this.textInput = ref}
                     size={
                         this.state.todo.length*2 < 80
                         ? this.state.todo.length*2
@@ -74,7 +74,7 @@ class Todoupdate extends React.Component{
 
     priventNullContent = async () => {
     }
-    modifyTodo = ( )=>{
+    modifyTodo = ()=>{
         return axios({
             method:'post',
             url:'/api/todo/update',

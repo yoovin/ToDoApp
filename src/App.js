@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Todolist from './component/Todolist'
 import Todoslide from './component/Todoslide';
 
@@ -43,7 +43,7 @@ componentDidMount(){
     return(
       <body>
         <Todoslide menu={this.state.menu} selectMenu={this.selectMenu}/>
-        <h1 className="title">Todos</h1>
+        <h1 className="title">ㅌㄷ</h1>
         <Todolist todo={this.state.todo} menu={this.state.menu} stateRefresh={this.stateRefresh}/>
       </body>
     )

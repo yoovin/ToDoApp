@@ -6,14 +6,14 @@ class Todoslide extends React.Component{
         if(this.props.menu){
             return(
             <div className="Donenav">
-                <div className="Done" onClick={this.props.selectMenu}>Done</div>
+                <div className="Done" onClick={this.props.selectMenu}>Not Done</div>
             </div>
             )
         }
         else{
             return(
                 <div className="Donenav">
-                    <div className="Done" onClick={this.props.selectMenu}>Not Done</div>
+                    <div className="Notdone" onClick={this.props.selectMenu}>Done</div>
                 </div>
             )
         }

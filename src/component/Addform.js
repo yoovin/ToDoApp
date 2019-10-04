@@ -3,18 +3,11 @@ import axios from 'axios'
 
 class Addform extends React.Component{
 
-    constructor(props){
-        super(props)
-
-        this.state = {
-            todo:''
-        }
-        this.handleFormSubmit = this.handleFormSubmit.bind(this)
-        this.handleValueChange = this.handleValueChange.bind(this)
-        this.addTodo = this.addTodo.bind(this)
+    state = {
+        todo:''
     }
 
-    addTodo = () =>{
+    addTodo = () => {
         return axios({
             method:'post',
             url:'/api/todo',
@@ -24,11 +17,11 @@ class Addform extends React.Component{
         })
     }
 
-    handleValueChange(e){
+    handleValueChange = (e) => {
         this.setState({todo:e.target.value})
     }
 
-    handleFormSubmit(e){
+    handleFormSubmit = (e) => {
         e.preventDefault()
         this.addTodo()
         .then((res) => {
@@ -42,8 +35,12 @@ class Addform extends React.Component{
         return(
             <div className="Addform">
                 <form onSubmit={this.handleFormSubmit}>
-                <input className="Todoinput" size={this.state.todo.length*2} type="text" name="content" value={this.state.todo} onChange={this.handleValueChange} placeholder="add Todo"></input>
-                <input type="submit"></input>
+                <input className="Todoinput" 
+                size={this.state.todo.length <= 10 ? 20 : this.state.todo.length*2}
+                type="text" name="content" 
+                value={this.state.todo} onChange={this.handleValueChange} 
+                placeholder="add Todo"></input>
+                <input className="Addbutton" type="submit" value="Add"></input>
                 </form>
             </div>
         )

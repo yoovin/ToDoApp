@@ -1,0 +1,162 @@
+@import url(
+    "https://fonts.googleapis.com/css?family=Jua|Nanum+Pen+Script|Roboto+Mono&display=swap&subset=korean"
+);
+
+@media (min-width: 350px) and (max-width: 400px){
+
+    .Isdonecheck{
+        float:left;
+        width: 10%;
+    }
+    
+    .Todotext{
+        margin-top: 15px;
+        font-family: 'Jua', sans-serif;
+        font-size: 20px;
+        float: left;
+        width: 30%;
+    }
+
+    .Deletebutton{
+        float: right;
+        width: 10px;
+     }
+
+     .Deletebutton path{
+         width: 10px;
+     }
+
+}
+
+$done: #D6FFA1;
+
+.title{
+    margin: 30px;
+    margin-left: 70px;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 50px;
+}
+
+body{
+    background: linear-gradient(to bottom, pink, orange);
+    height: 100%;
+    width: 100%;
+}
+
+.Isdonecheck{
+    float:left;
+    width: 5%;
+}
+
+.Todotext{
+    margin-top: 15px;
+    font-family: 'Jua', sans-serif;
+    font-size: 20px;
+    float: left;
+    width: 85%;
+}
+
+.Deletebutton{
+   float: right;
+}
+.Deleteicon, .Checkicon{
+    background-color: Transparent;
+    outline: none;
+    background-repeat:no-repeat;
+    border: none;
+    margin: 5px;
+}
+
+.Deleteicon:hover{
+    color: red;
+}
+
+.Checkicon:hover{
+    color: greenyellow;
+}
+
+.Donenav > div{
+    background-color: aliceblue;
+    float: right;
+    padding: 20px;
+    width: 70px;
+    text-align: center;
+}
+
+.Done, .Notdone{
+    font-family: 'Roboto Mono', monospace;
+    margin-right: 50px;
+    border-radius: 15px;
+}
+
+.Donenav > .Done{
+    background-color: aliceblue;
+    font-size: 91%;
+}
+
+
+.Done:hover{
+    background-color: $done;
+}
+.Donenav > .Notdone{
+    background-color: $done;
+}
+
+.Todolist{
+    margin: 30px;
+    background-color: #EFEFEF;
+    // height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+}
+
+.todocard{
+    margin: 8px;
+    padding: 15px;
+    height: 50px;
+    background-color: #FFF;
+    border-radius: 10px;
+    width: 93%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.todocard:hover{
+    background-color: antiquewhite;
+}
+
+.Addform{
+    margin-left: 15px;
+    font-family: 'Roboto Mono', monospace;
+    height: 100%;
+    line-height: 100%;
+    
+}
+
+.Todoinput{
+    transition: width .35s linear;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    width: 150px;
+    background-color: #dddddd;
+
+}
+
+.Addbutton{
+    background-color: yellow;
+    border-radius: 10px; 
+    width: 60px;
+    height: 40px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+}
+
+.Updatetext{
+    height: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+}
