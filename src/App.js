@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Todolist from './component/Todolist'
 import Todoslide from './component/Todoslide';
+import Headforanimate from './component/Headforanimate'
 
 class App extends React.Component{
 
@@ -9,7 +10,8 @@ constructor(props){
   super(props)
   this.state = {
     todo:'',
-    menu:true
+    menu:true,
+    user:'user1'
   }
 }
 
@@ -20,7 +22,7 @@ stateRefresh = () =>{
 }
 
 callApi = async () => {
-  const response = await fetch('/api/todo')
+  const response = await fetch(`/api/todo/${this.state.user}`)
   const body = await response.json()
   console.log('callApied!')
   return body
@@ -41,10 +43,12 @@ componentDidMount(){
 
   render(){
     return(
+      
       <body>
+        <Headforanimate/>
         <Todoslide menu={this.state.menu} selectMenu={this.selectMenu}/>
         <h1 className="title">ㅌㄷ</h1>
-        <Todolist todo={this.state.todo} menu={this.state.menu} stateRefresh={this.stateRefresh}/>
+        <Todolist user={this.state.user} todo={this.state.todo} menu={this.state.menu} stateRefresh={this.stateRefresh}/>
       </body>
     )
   }

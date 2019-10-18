@@ -14,6 +14,7 @@ class Tododelete extends React.Component{
             method:'post',
             url:'/api/todo/delete',
             data:{
+                user:this.props.user,
                 id:this.props.id
             }
         })

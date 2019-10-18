@@ -22,6 +22,7 @@ class Isdonecheck extends React.Component{
             method:'post',
             url:'/api/todo/isdone',
             data:{
+                user:this.props.user,
                 id:this.props.id,
                 isdone:!this.state.carddone
             }

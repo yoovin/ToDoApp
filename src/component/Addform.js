@@ -12,6 +12,7 @@ class Addform extends React.Component{
             method:'post',
             url:'/api/todo',
             data:{
+                user:this.props.user,
                 content:this.state.todo
             }
         })

@@ -12,12 +12,12 @@ class Todolist extends React.Component{
     render(){
         return(
             <div className="Todolist">
-                {this.props.menu === true ? <Addform stateRefresh={this.props.stateRefresh}/> : ''}
+                {this.props.menu === true ? <Addform user={this.props.user} stateRefresh={this.props.stateRefresh}/> : ''}
                 {this.props.todo ? this.props.todo.map(c =>{
                     if(this.props.menu === true && c.isdone === false){
-                        return <Todocard id={c.id} content={c.content} isdone={c.isdone} stateRefresh={this.props.stateRefresh}/>
+                        return <Todocard user={this.props.user} id={c.id} content={c.content} isdone={c.isdone} stateRefresh={this.props.stateRefresh}/>
                     }else if(this.props.menu === false && c.isdone === true){
-                        return <Todocard id={c.id} content={c.content} isdone={c.isdone} stateRefresh={this.props.stateRefresh}/>
+                        return <Todocard user={this.props.user} id={c.id} content={c.content} isdone={c.isdone} stateRefresh={this.props.stateRefresh}/>
                     }else{
                         return ''
                     }

@@ -79,6 +79,7 @@ class Todoupdate extends React.Component{
             method:'post',
             url:'/api/todo/update',
             data:{
+                user:this.props.user,
                 id:this.props.id,
                 content:this.state.todo
             }
